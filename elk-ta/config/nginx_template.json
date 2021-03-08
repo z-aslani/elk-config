@@ -1,0 +1,81 @@
+{
+  "template": "nginx-tapsell-*",
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "logs": {
+      "_source": {
+        "enabled": true
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "agent": {
+          "type": "text"
+        },
+        "method": {
+          "type": "keyword"
+        },
+        "module": {
+          "type": "keyword"
+        },
+        "referrer": {
+          "type": "keyword"
+        },
+        "remote": {
+          "type": "ip"
+        },
+        "remote_user": {
+          "type": "text"
+        },
+        "host_name": {
+          "type": "keyword"
+        },
+        "server_name": {
+          "type": "keyword"
+        },
+        "size": {
+          "type": "long"
+        },
+        "ubs": {
+          "type": "long"
+        },
+        "rl": {
+          "type": "long"
+        },
+        "request_time": {
+          "type": "scaled_float",
+          "scaling_factor": 1000,
+          "ignore_malformed": true
+        },
+        "upstream_connect_time": {
+          "type": "scaled_float",
+          "scaling_factor": 1000,
+          "ignore_malformed": true
+        },
+        "upstream_header_time": {
+          "type": "scaled_float",
+          "scaling_factor": 1000,
+          "ignore_malformed": true
+        },
+        "upstream_response_time": {
+          "type": "scaled_float",
+          "scaling_factor": 1000,
+          "ignore_malformed": true
+        },
+        "url": {
+          "type": "keyword"
+        },
+        "uri": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
